@@ -29,6 +29,8 @@ export default function App() {
   const [hashtags, setHashtags] = useState(DEFAULT_HASHTAGS);
   const [themeId, setThemeId] = useState('classic');
 
+  const [activeTab, setActiveTab] = useState('edit'); // 'edit' | 'preview'
+
   // Generate initial timeline based on wizard responses
   const handleWizardComplete = () => {
     const birth = parseInt(wizardData.birthYear, 10) || 1998;
@@ -141,7 +143,9 @@ export default function App() {
 
     setTimeline(newTimeline);
     setTitle(`怎么会有如此平平无奇的${newTimeline.length}年`);
+    setThemeId('classic');
     setMode('editor');
+    setActiveTab('preview'); // Land on preview to see the generated timeline immediately!
   };
 
   const handleUpdateRow = (index, updatedRow) => {
@@ -184,38 +188,58 @@ export default function App() {
           />
         </div>
       ) : (
-        <main className="app-container">
-          {/* Left panel: Timeline Editor */}
-          <div className="panel-container">
-            <TimelineEditor 
-              timeline={timeline}
-              title={title}
-              setTitle={setTitle}
-              hashtags={hashtags}
-              setHashtags={setHashtags}
-              onUpdateRow={handleUpdateRow}
-              onReset={handleReset}
-              onStartOver={handleStartOver}
-            />
+        <div className="editor-layout-wrapper" style={{ width: '100%' }}>
+          {/* Mobile Tabs Switcher Header */}
+          <div className="mobile-tabs-header">
+            <button 
+              type="button" 
+              className={`tab-btn ${activeTab === 'edit' ? 'active' : ''}`}
+              onClick={() => setActiveTab('edit')}
+            >
+              ✍️ 编辑内容
+            </button>
+            <button 
+              type="button" 
+              className={`tab-btn ${activeTab === 'preview' ? 'active' : ''}`}
+              onClick={() => setActiveTab('preview')}
+            >
+              🎨 预览与下载
+            </button>
           </div>
 
-          {/* Right panel: Canvas Preview & Theme Selection */}
-          <div className="panel-container" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <CanvasPreview 
-              timeline={timeline}
-              title={title}
-              hashtags={hashtags}
-              themeId={themeId}
-            />
-            
-            <div className="panel">
-              <ThemeSelector 
-                activeThemeId={themeId}
-                onChangeTheme={setThemeId}
+          <main className="app-container">
+            {/* Left panel: Timeline Editor */}
+            <div className={`panel-container editor-panel ${activeTab === 'edit' ? '' : 'mobile-hidden'}`}>
+              <TimelineEditor 
+                timeline={timeline}
+                title={title}
+                setTitle={setTitle}
+                hashtags={hashtags}
+                setHashtags={setHashtags}
+                onUpdateRow={handleUpdateRow}
+                onReset={handleReset}
+                onStartOver={handleStartOver}
               />
             </div>
-          </div>
-        </main>
+
+            {/* Right panel: Canvas Preview & Theme Selection */}
+            <div className={`panel-container preview-panel ${activeTab === 'preview' ? '' : 'mobile-hidden'}`}>
+              <CanvasPreview 
+                timeline={timeline}
+                title={title}
+                hashtags={hashtags}
+                themeId={themeId}
+              />
+              
+              <div className="panel" style={{ marginTop: '20px' }}>
+                <ThemeSelector 
+                  activeThemeId={themeId}
+                  onChangeTheme={setThemeId}
+                />
+              </div>
+            </div>
+          </main>
+        </div>
       )}
 
       {/* App Footer */}
