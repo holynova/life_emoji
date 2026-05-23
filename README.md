@@ -2,7 +2,7 @@
 
 Emoji Life 是一个响应式、移动端优先的 Web 工具，帮助用户通过最简单的 **年份 + Emoji** 组合，快速生成极具社交分享感的人生回忆轨迹图（完美适配小红书、微信朋友圈、微博等平台）。
 
-👉 **在线体验地址**: `https://<your-github-username>.github.io/emoji_life/` *(请将 `<your-github-username>` 替换为您的 GitHub 用户名)*
+👉 **在线体验地址**: [https://holynova.github.io/life_emoji/](https://holynova.github.io/life_emoji/)
 
 ---
 
