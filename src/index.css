@@ -908,3 +908,169 @@ body {
   border-top: 1px solid var(--border-card);
   letter-spacing: 0.3px;
 }
+
+/* --- Responsive Overrides for Mobile Small Screens (<= 480px) --- */
+@media (max-width: 480px) {
+  #root {
+    padding: 10px 4px;
+  }
+
+  .app-header {
+    padding: 15px 0 10px 0;
+    gap: 8px;
+  }
+
+  .app-title {
+    font-size: 1.95rem;
+    letter-spacing: -0.5px;
+  }
+
+  .logo-icon {
+    font-size: 1.85rem;
+  }
+
+  .app-subtitle {
+    font-size: 0.85rem;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .app-container {
+    margin-top: 15px;
+    gap: 18px;
+  }
+
+  .panel {
+    padding: 18px 12px;
+    border-radius: var(--radius-md);
+  }
+
+  /* Compact Step Wizard */
+  .step-title {
+    font-size: 1.35rem;
+  }
+
+  .wizard-progress {
+    margin-bottom: 20px;
+  }
+
+  .progress-dot {
+    width: 26px;
+    height: 26px;
+    font-size: 0.75rem;
+  }
+
+  .gender-select-grid {
+    gap: 12px;
+  }
+
+  .gender-card {
+    padding: 16px 8px;
+    gap: 8px;
+  }
+
+  .gender-card-emoji {
+    font-size: 2.2rem;
+  }
+
+  /* Horizontally Scrollable Theme Selector (Saves Vertical Space) */
+  .themes-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 2px 2px 10px 2px;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .theme-card {
+    flex: 0 0 110px;
+    min-height: 48px;
+    padding: 8px;
+    font-size: 0.75rem;
+  }
+
+  /* Compact Timeline Rows */
+  .timeline-list::before {
+    left: 82px; /* Reposition axis dynamically */
+  }
+
+  .timeline-row {
+    grid-template-columns: 62px 42px 1fr 30px;
+    padding: 10px 10px;
+    gap: 8px;
+    border-radius: var(--radius-sm);
+  }
+
+  .row-year {
+    font-size: 0.95rem;
+  }
+
+  .row-age {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+  }
+
+  .row-emoji-display {
+    font-size: 1.15rem;
+    gap: 4px;
+  }
+
+  .row-text-display {
+    font-size: 0.75rem;
+    padding: 1px 5px;
+    max-width: 80px;
+  }
+
+  .row-edit-btn {
+    font-size: 0.95rem;
+  }
+
+  /* Compact Presets */
+  .preset-grid {
+    grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+    gap: 8px;
+    max-height: 240px;
+  }
+
+  .preset-card {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .preset-emoji {
+    font-size: 1.2rem;
+  }
+
+  .preset-label {
+    font-size: 0.75rem;
+  }
+
+  /* Compact Tweak Presets Category lists */
+  .preset-categories-accordion {
+    padding: 8px;
+    gap: 10px;
+  }
+
+  .preset-category-row {
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+
+  .btn-preset-mini {
+    padding: 5px 8px;
+    font-size: 0.75rem;
+    gap: 4px;
+  }
+
+  /* Canvas preview frame */
+  .canvas-wrapper {
+    padding: 8px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+}
