@@ -13,22 +13,22 @@ Emoji Life 是一个响应式、移动端优先的 Web 工具，帮助用户通�
 ## 📸 应用截图与界面预览
 
 ### 💻 桌面端预览
-````carousel
 ![趣味向导问卷](./screenshots/app_screenshot_wizard.png)
-<!-- slide -->
+
+
 ![时间线编辑与 Canvas 实时预览](./screenshots/app_screenshot_editor.png)
-<!-- slide -->
+
+
 ![治愈手账风主题切换](./screenshots/app_screenshot_journal.png)
-````
 
 ### 📱 移动端小屏适配预览
-````carousel
 ![移动端问卷引导](./screenshots/app_screenshot_mobile_wizard.png)
-<!-- slide -->
+
+
 ![移动端编辑页（适配虚线轴与小胶囊）](./screenshots/app_screenshot_mobile_editor.png)
-<!-- slide -->
+
+
 ![移动端横滑主题选择与底部预览](./screenshots/app_screenshot_mobile_journal.png)
-````
 
 ---
 
@@ -57,11 +57,12 @@ Emoji Life 是一个响应式、移动端优先的 Web 工具，帮助用户通�
 
 ## 🚀 本地开发与启动
 
-请确保您已安装 [Node.js](https://nodejs.org/) (建议 v18+)。
+请确保您已安装 [Node.js](https://nodejs.org/) （本项目使用 Vite 8，建议 Node.js 22.13.0 或更高版本）。
 
 ```bash
 # 1. 克隆并进入项目目录
-cd emoji_life
+git clone https://github.com/holynova/life_emoji.git
+cd life_emoji
 
 # 2. 安装项目依赖
 npm install
@@ -72,6 +73,16 @@ npm run dev
 打开浏览器访问控制台输出的本地地址（通常是 `http://localhost:5173`）即可体验。
 
 ---
+
+## 本地检查与预览
+
+```bash
+npm run lint
+npm run build
+npm run preview
+```
+
+`preview` 用于查看本机构建结果。
 
 ## 📦 打包与部署
 
